@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package proto;
+
+service Users {
+    rpc Create(User) returns (Response) {}
+}
+
+message User {
+    int64 client_id = 1;
+    string name = 2;
+    string email = 3;
+    string mobile_number = 4;
+}
+
+message UserList {    
+    repeated User list = 1;
+
+}
+
+message Error {
+    int32 code = 1;
+    string description = 2;
+}
+
+message Response{
+    User user = 1;
+    repeated Error errors = 2;
+}

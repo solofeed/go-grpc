@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  csv-service:
+    build:
+      context: ./
+      dockerfile: ./docker/csv-service/Dockerfile
+    volumes:
+      - './src:/go/src'
+    restart: always
+
+  # user-service:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./docker/user-service/Dockerfile
+  #   volumes:
+  #     - './src:/go/src'
+  #   restart: always
+
+  mongodb:
+    image: mongo
+    volumes:
+    - mongodb_data:/data/db
+    environment:
+      STORAGE_ENGINE: wiredTiger
+
+
+volumes:
+  mongodb_data:
