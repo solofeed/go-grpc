@@ -8,7 +8,7 @@ $ make start
 
 ## What is not done
 * updates the existing user(was problem with new mongodb driver)
-* Support for a TERM or KILL signal
+* support for a TERM or KILL signal
 * code quality checkers
 * tests
 
