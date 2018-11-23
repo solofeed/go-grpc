@@ -7,7 +7,7 @@ $ make start
 
 
 ## What is not done
-* creates a new record in a database, or updates the existing one(was problem with new mongodb driver)
+* updates the existing user(was problem with new mongodb driver)
 * Support for a TERM or KILL signal
 * code quality checkers
 * tests
