@@ -1,9 +1,10 @@
 # Simple go micro-service application
 
-## To parse the data.csv file, run make command, an output is 5 (limit) users from the database
+## To parse the data.csv file, run make command
 ```shell
 $ make start
 ```
+## an output is 5 (limit) users from the database
 
 
 ## What is not done
