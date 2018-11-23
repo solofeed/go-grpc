@@ -1,4 +1,4 @@
-module github.com/go-grpc
+module github.com/solofeed/go-grpc
 
 require (
 	github.com/golang/protobuf v1.2.0
