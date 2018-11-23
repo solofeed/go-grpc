@@ -3,20 +3,26 @@ version: '3.1'
 services:
 
   csv-service:
-    build:
-      context: ./
-      dockerfile: ./docker/csv-service/Dockerfile
-    volumes:
-      - './src:/go/src'
-    restart: always
+      image: golang:1.11
+      working_dir: /app
+      volumes:
+          - .:/app
+          - cache:/go
+      command: go run cmd/csv-service/main.go
+      depends_on:
+        - user-service
 
-  # user-service:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./docker/user-service/Dockerfile
-  #   volumes:
-  #     - './src:/go/src'
-  #   restart: always
+  user-service:
+      image: golang:1.11
+      working_dir: /app
+      volumes:
+          - .:/app
+          - cache:/go
+      command: go run cmd/user-service/main.go
+      depends_on:
+        - mongodb
+
+
 
   mongodb:
     image: mongo
@@ -28,3 +34,4 @@ services:
 
 volumes:
   mongodb_data:
+  cache:

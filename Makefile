@@ -1,4 +1,9 @@
 start:
-	docker-compose up --build -d
+	docker-compose up csv-service
+	make show-users
 
-.PHONY: start
+show-users:
+	docker-compose exec mongodb mongo test --eval "db.users.find().limit(5).forEach(printjson)"
+
+
+.PHONY: start show-users
